@@ -153,6 +153,7 @@ import os
 # Static files
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR / 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # For collectstatic command
 
 
 AUTH_USER_MODEL = 'myapp.User'  # or 'auth.User' for default

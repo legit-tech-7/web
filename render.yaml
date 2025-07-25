@@ -2,7 +2,9 @@ services:
   - type: web
     name: zentro
     runtime: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
     startCommand: gunicorn zentro.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE

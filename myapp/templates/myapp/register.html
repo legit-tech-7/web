@@ -1,0 +1,75 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="card shadow-lg">
+            <div class="card-header bg-success text-white text-center">
+                <h3 class="mb-0"><i class="bi bi-person-plus"></i> Register</h3>
+            </div>
+            <div class="card-body">
+
+                <!-- Error Display -->
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <ul class="mb-0">
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+                <!-- Registration Form -->
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username"
+                                   value="{{ form.username.value|default_if_none:'' }}" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   value="{{ form.email.value|default_if_none:'' }}" required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3">
+                            <label for="password1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password1" name="password1" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="password2" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="password2" name="password2" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="referral_code" class="form-label">Referral Code (Optional)</label>
+                        <input type="text" class="form-control" id="referral_code" name="referral_code"
+                               value="{{ request.GET.ref|default_if_none:'' }}">
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-person-plus"></i> Register
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card-footer text-center">
+                Already have an account? <a href="{% url 'login' %}" class="text-decoration-none">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

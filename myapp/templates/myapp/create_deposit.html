@@ -1,0 +1,118 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0"><i class="bi bi-arrow-down-circle"></i> Make a Deposit</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">{{ form.non_field_errors.0 }}</div>
+                    {% endif %}
+
+                    <!-- Select Deposit Plan -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Select Plan</label>
+                        <select name="plan" class="form-select" required>
+                            {% for plan in plans %}
+                                <option value="{{ plan.id }}">
+                                    {{ plan.name }} - {{ plan.daily_percentage }}% daily (Min: {{ plan.min_amount }}, Max: {{ plan.max_amount }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                        {% if form.plan.errors %}
+                            <div class="text-danger small">{{ form.plan.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Select Wallet Type -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Wallet Type</label>
+                        <select class="form-select" id="walletTypeSelect" name="wallet_type" required onchange="updateWalletInfo()">
+                            <option disabled selected>Select wallet</option>
+                            {% for wallet in wallet_addresses %}
+                                <option value="{{ wallet.wallet_type }}"
+                                        data-address="{{ wallet.address }}"
+                                        data-qr="{{ wallet.qr_code.url }}">
+                                    {{ wallet.get_wallet_type_display }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                        {% if form.wallet_type.errors %}
+                            <div class="text-danger small">{{ form.wallet_type.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Wallet Info Display -->
+                    <div id="walletInfoBox" class="bg-light p-3 border rounded mb-3" style="display: none;">
+                        <label class="form-label fw-bold">Wallet Address:</label>
+                        <div class="input-group mb-3">
+                            <input type="text" id="walletAddressField" class="form-control" readonly>
+                            <button type="button" class="btn btn-outline-secondary" onclick="copyWalletAddress()">Copy</button>
+                        </div>
+                        <div id="qrCodeBox" class="text-center">
+                            <img id="walletQrImage" src="" alt="QR Code" style="max-width: 200px; border: 1px solid #ccc;">
+                        </div>
+                    </div>
+
+                    <!-- Amount -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Amount</label>
+                        {{ form.amount }}
+                        {% if form.amount.errors %}
+                            <div class="text-danger small">{{ form.amount.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Upload Screenshot -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Upload Payment Proof</label>
+                        {{ form.proof }}
+                        {% if form.proof.errors %}
+                            <div class="text-danger small">{{ form.proof.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-send-check"></i> Submit Deposit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    function updateWalletInfo() {
+        const select = document.getElementById('walletTypeSelect');
+        const selected = select.options[select.selectedIndex];
+        const address = selected.getAttribute('data-address');
+        const qr = selected.getAttribute('data-qr');
+
+        if (address && qr) {
+            document.getElementById('walletAddressField').value = address;
+            document.getElementById('walletQrImage').src = qr;
+            document.getElementById('walletInfoBox').style.display = 'block';
+        } else {
+            document.getElementById('walletInfoBox').style.display = 'none';
+        }
+    }
+
+    function copyWalletAddress() {
+        const input = document.getElementById('walletAddressField');
+        input.select();
+        input.setSelectionRange(0, 99999); // for mobile
+        document.execCommand('copy');
+        alert("Wallet address copied!");
+    }
+</script>
+{% endblock %}

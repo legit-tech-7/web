@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Withdrawal Approval Required</title>
+</head>
+<body>
+    <h2>New Withdrawal Request</h2>
+    <p>User {{ user.username }} has requested a withdrawal:</p>
+    
+    <ul>
+        <li>Amount: {{ amount }} {{ wallet_type }}</li>
+        <li>Wallet Address: {{ wallet_address }}</li>
+        <li>Date: {{ created_at }}</li>
+    </ul>
+
+    <p>Please review and approve this withdrawal:</p>
+    <a href="{{ approval_url }}" style="background-color: #1cc88a; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;">
+        Review Withdrawal
+    </a>
+
+    <p>Thank you,<br>Your Finance System</p>
+</body>
+</html>

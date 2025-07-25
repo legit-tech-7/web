@@ -1,0 +1,43 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h3 class="mb-0"><i class="bi bi-arrow-up-circle"></i> Withdrawal History</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Amount</th>
+                                <th>Wallet</th>
+                                <th>Address</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for withdrawal in withdrawals %}
+                            <tr>
+                                <td>{{ withdrawal.amount|floatformat:8 }}</td>
+                                <td>{{ withdrawal.get_wallet_type_display }}</td>
+                                <td>{{ withdrawal.wallet_address|truncatechars:10 }}</td>
+                                <td><span class="status-{{ withdrawal.status|lower }}">{{ withdrawal.get_status_display }}</span></td>
+                                <td>{{ withdrawal.created_at|date:"M d, Y" }}</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="5" class="text-center">No withdrawals yet</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

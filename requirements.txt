@@ -1,0 +1,68 @@
+Django==4.2.16
+gunicorn==23.0.0
+whitenoise==6.9.0
+
+# Database
+dj-database-url==3.0.1
+django-environ==0.12.0
+psycopg2-binary
+
+# Forms and UI
+asgiref==3.8.1
+billiard==4.2.1
+celery==5.5.3
+click==8.2.1
+click-didyoumean==0.3.1
+click-plugins==1.1.1.2
+click-repl==0.3.0
+colorama==0.4.6
+crispy-bootstrap5==2025.6
+cron-descriptor==1.4.5
+dj-database-url==3.0.1
+Django==4.2.16
+django-allauth==65.9.0
+django-celery-beat==2.8.1
+django-crispy-forms==2.4
+django-cron==0.6.0
+django-environ==0.12.0
+django-tables2==2.7.5
+django-timezone-field==7.1
+gunicorn==23.0.0
+kombu==5.5.4
+packaging==25.0
+pillow==11.2.1
+prompt_toolkit==3.0.51
+python-crontab==3.2.0
+python-dateutil==2.9.0.post0
+redis==6.2.0
+six==1.17.0
+sqlparse==0.5.3
+tzdata==2025.2
+vine==5.1.0
+wcwidth==0.2.13
+whitenoise==6.9.0
+y-forms==2.4
+crispy-bootstrap5==2025.6
+django-tables2==2.7.5
+
+# Timezone and cron
+django-timezone-field==7.1
+django-cron==0.6.0
+cron-descriptor==1.4.5
+python-crontab==3.2.0
+
+# Celery (Background Tasks)
+celery==5.3.6
+redis==4.6.0
+django-celery-beat==2.5.0
+billiard==4.2.0
+vine==5.1.0
+
+# Authentication
+django-allauth==65.9.0
+
+# Other dependencies
+sqlparse==0.5.3
+pillow==11.2.1
+python-dateutil==2.9.0.post0
+tzdata==2025.2

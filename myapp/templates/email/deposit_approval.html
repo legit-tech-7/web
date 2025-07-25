@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deposit Approval Required</title>
+</head>
+<body>
+    <h2>New Deposit Request</h2>
+    <p>User {{ user.username }} has made a deposit request:</p>
+    
+    <ul>
+        <li>Amount: {{ amount }} {{ wallet_type }}</li>
+        <li>Plan: {{ plan }}</li>
+        <li>Date: {{ created_at }}</li>
+    </ul>
+
+    <p>Please review and approve this deposit:</p>
+    <a href="{{ approval_url }}" style="background-color: #4e73df; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;">
+        Review Deposit
+    </a>
+
+    <p>Thank you,<br>Your Finance System</p>
+</body>
+</html>

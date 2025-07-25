@@ -1,0 +1,160 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header bg-danger text-white">
+                <h3 class="mb-0"><i class="bi bi-speedometer2"></i> Admin Dashboard</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card border-start-primary h-100">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <div class="text-xs fw-bold text-primary text-uppercase mb-1">
+                                            Pending Deposits
+                                        </div>
+                                        <div class="h5 mb-0 fw-bold text-gray-800">
+                                            {{ pending_deposits.count }}
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-arrow-down-circle fs-1 text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card border-start-success h-100">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <div class="text-xs fw-bold text-success text-uppercase mb-1">
+                                            Pending Withdrawals
+                                        </div>
+                                        <div class="h5 mb-0 fw-bold text-gray-800">
+                                            {{ pending_withdrawals.count }}
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-arrow-up-circle fs-1 text-success"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card border-start-info h-100">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <div class="text-xs fw-bold text-info text-uppercase mb-1">
+                                            Total Users
+                                        </div>
+                                        <div class="h5 mb-0 fw-bold text-gray-800">
+                                            {{ total_users }}
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-people fs-1 text-info"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0"><i class="bi bi-arrow-down-circle"></i> Pending Deposits</h5>
+            </div>
+            <div class="card-body">
+                {% if pending_deposits %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for deposit in pending_deposits %}
+                            <tr>
+                                <td>{{ deposit.user.username }}</td>
+                                <td>{{ deposit.amount|floatformat:8 }} {{ deposit.get_wallet_type_display }}</td>
+                                <td>{{ deposit.created_at|date:"M d, Y" }}</td>
+                                <td>
+                                    <a href="{% url 'admin_approve_deposit' deposit.id %}" class="btn btn-sm btn-primary">
+                                        <i class="bi bi-eye"></i> Review
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="alert alert-success text-center">
+                    <i class="bi bi-check-circle"></i> No pending deposits
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0"><i class="bi bi-arrow-up-circle"></i> Pending Withdrawals</h5>
+            </div>
+            <div class="card-body">
+                {% if pending_withdrawals %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for withdrawal in pending_withdrawals %}
+                            <tr>
+                                <td>{{ withdrawal.user.username }}</td>
+                                <td>{{ withdrawal.amount|floatformat:8 }} {{ withdrawal.get_wallet_type_display }}</td>
+                                <td>{{ withdrawal.created_at|date:"M d, Y" }}</td>
+                                <td>
+                                    <a href="{% url 'admin_approve_withdrawal' withdrawal.id %}" class="btn btn-sm btn-primary">
+                                        <i class="bi bi-eye"></i> Review
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="alert alert-success text-center">
+                    <i class="bi bi-check-circle"></i> No pending withdrawals
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

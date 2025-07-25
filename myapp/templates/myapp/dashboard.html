@@ -1,0 +1,162 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+
+<div class="row">
+    <!-- Balance Card -->
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="bi bi-wallet2"></i> Account Balance</h5>
+            </div>
+            <div class="card-body text-center" style="background-color: rgb(80, 226, 43);">
+                <div class="balance-display mb-3">
+                    {% if request.user.hide_balance %}
+                        <i class="bi bi-eye-slash"></i> ******
+                    {% else %}
+                        ${{ request.user.balance|floatformat:8 }}
+                    {% endif %}
+                </div>
+                <button id="toggle-balance" class="btn btn-sm btn-outline-primary">
+                    {% if request.user.hide_balance %}
+                        <i class="bi bi-eye"></i> Show
+                    {% else %}
+                        <i class="bi bi-eye-slash"></i> Hide
+                    {% endif %}
+                </button>
+            </div>
+            <div class="card-footer bg-transparent" style="background-color: rgb(80, 226, 43);">
+                <div class="d-flex justify-content-between">
+                    <a href="{% url 'create_deposit' %}" class="btn btn-sm btn-primary">
+                        <i class="bi bi-plus-circle"></i> Deposit
+                    </a>
+                    <a href="{% url 'create_withdrawal' %}" class="btn btn-sm btn-success">
+                        <i class="bi bi-arrow-up-circle"></i> Withdraw
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="col-lg-8 mb-4">
+        <div class="card h-100">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="bi bi-lightning"></i> Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <a href="{% url 'create_deposit' %}" class="btn btn-primary w-100">
+                            <i class="bi bi-arrow-down-circle"></i> Make Deposit
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <a href="{% url 'create_withdrawal' %}" class="btn btn-success w-100">
+                            <i class="bi bi-arrow-up-circle"></i> Request Withdrawal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Earnings Summary -->
+<div class="row">
+    <div class="col-12">
+        <div class="card" style="background-color: rgb(80, 226, 43);">
+            <div class="card-header bg-info text-white">
+                <h3 class="mb-0"><i class="bi bi-graph-up"></i> Earnings Summary</h3>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-4 mb-3">
+                        <div class="card bg-primary text-white h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Total Earned</h5>
+                                <p class="card-text display-6">{{ total_earned|floatformat:8 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card bg-success text-white h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Daily Earnings</h5>
+                                <p class="card-text display-6">{{ daily_earned|floatformat:8 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card bg-warning text-dark h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Referral Earnings</h5>
+                                <p class="card-text display-6">{{ referral_earned|floatformat:8 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Earnings Table -->
+                <h4><i class="bi bi-clock-history"></i> Recent Earnings</h4>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Amount</th>
+                                <th>Source</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for earn in earnings %}
+                            <tr>
+                                <td>${{ earn.amount|floatformat:8 }}</td>
+                                <td>{{ earn.source|title }}</td>
+                                <td>{{ earn.created_at|date:"M d, Y - H:i" }}</td>
+                            </tr>
+                            {% empty %}
+                            <tr><td colspan="3">No earnings yet.</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Referral Link -->
+<div class="mt-4">
+    <h3>Your Referral Link</h3>
+    <input type="text" id="refLink" value="http://localhost:8000/register/?ref={{ user.referral_code }}" readonly style="width: 100%; padding: 10px;" />
+    <button onclick="copyReferralLink()" style="margin-top: 5px;" class="btn btn-info btn-sm">Copy Link</button>
+</div>
+
+<!-- JavaScript -->
+<script>
+    document.getElementById('toggle-balance')?.addEventListener('click', function () {
+        fetch("{% url 'toggle_balance' %}", {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            window.location.reload();
+        });
+    });
+
+    function copyReferralLink() {
+        var copyText = document.getElementById("refLink");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile
+        document.execCommand("copy");
+        alert("Referral link copied!");
+    }
+</script>
+
+{% endblock %}

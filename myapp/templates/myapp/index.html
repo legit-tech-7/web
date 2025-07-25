@@ -1,0 +1,1408 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title> LitGet</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  
+    <link rel="stylesheet" href="{% static 'css/faq.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Favicons -->
+  <link href="{%static 'assets/img/favicon.png'%}" rel="icon">
+  <link href="{%static 'assets/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{%static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/aos/aos.css'%}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{%static 'assets/css/main.css'%}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceRestaurant
+  * Template URL: https://bootstrapmade.com/nice-restaurant-bootstrap-template/
+  * Updated: Jun 06 2025 with Bootstrap v5.3.6
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="{%static 'assets/img/logo.webp'%}'%}" alt=""> -->
+        <i class="bi bi-calendar-heart"></i>
+        <h1 class="sitename">LitGet</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Our plans</a></li>
+          <li><a href="#book-a-table">F&Qs</a></li>
+         
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted d-none d-sm-block" href="{% url 'login' %}">Invest now</a>
+
+    </div>
+  </header>
+
+
+
+  
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+      <div class="container-fluid hero-container" data-aos="fade-up">
+        <div class="row g-0 align-items-center">
+          <div class="col-lg-6 content-col">
+            <div class="content-wrapper">
+              <div class="status-badge">Reservations Open</div>
+              <h2>MAKE YOUR CRYPTO  WORK FOR YOU</h2>
+              <p>Bytget makes investment  simpler, Comprehensive,  Profitable and Resourceful for  Everyone.</p>
+
+              <div class="opening-hours" data-aos="fade-up" data-aos-delay="500">
+                <i class="bi bi-clock"></i>
+                <span>Open: 247</span>
+              </div>
+
+              <div class="btn-group">
+                <a href="#book-a-table" class="btn btn-book">HOW IT WORKS <i class="fa fa-arrow-down" aria-hidden="true"></i></a>
+                <a href="{% url 'login' %}" class="btn btn-menu">LOGIN  </a>
+              </div>
+
+              <div class="social-links">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 swiper-col">
+            <div class="swiper hero-swiper init-swiper" data-aos="zoom-out" data-aos-delay="100">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 800,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "effect": "fade",
+                  "slidesPerView": 1,
+                  "navigation": {
+                    "nextEl": ".swiper-button-next",
+                    "prevEl": ".swiper-button-prev"
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="img-container">
+  <img src="{%static 'assets/img/c1.jpg'%}" alt="Restaurant Ambience">                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="img-container">
+                      <img src="{%static 'assets/img/trade.jpg'%}" alt="Restaurant Ambience">
+                  
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="img-container">
+                    <img src="{%static 'assets/img/c2.jpg'%}" alt="Restaurant Ambience">
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      
+         
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="about-content">
+              <h3>Our Culinary Journey</h3>
+              <p class="fst-italic">litget is a leading, independent Digital Assets Investment and Blockchain platform that provides bespoke financial solutions that add value to our individual and institutional clients. We are licensed and regulated by the Securities & Exchange Commission (SEC) and Financial Industry Regulatory Authority ( FINRA ) to provide Investment Banking, Asset Management and Securities Trading services to our discerning clientele.
+         We provide an opportunity to invest from €100. Just sign up on the website and start earning steady hourly income. <a href="{% url 'about'%}" style="color: #fbc531;">Read more </a></p>
+              
+
+              <div class="chef-signature mt-4">
+                <div class="row align-items-center">
+                  <div class="col-auto">
+                  </div>
+                  <div class="col">
+                    <p class="chef-message mb-2">"We provide instant payments. Immediately after a withdrawal request, funds are automatically sent to your e-currency account."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="300">
+            <div class="about-image-wrapper">
+              <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LitGet - BTC Price Tracker</title>
+    <style>
+        .tradingview-widget-container {
+            margin: 20px auto;
+            max-width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #2a3042;
+            color: white;
+        }
+        
+        .widget-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .widget-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .timeframe-btn {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        
+        .timeframe-btn.active {
+            background: #fbc531;
+            color: #2a3042;
+        }
+        
+        @media (max-width: 600px) {
+            .tradingview-widget-container {
+                border-radius: 0;
+            }
+            
+            .widget-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .widget-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .timeframe-btn {
+                flex: 1;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tradingview-widget-container">
+        <div class="widget-header">
+            <div class="widget-title">Bitcoin (BTC/USD) Price</div>
+            <div class="widget-actions">
+                <button class="timeframe-btn active" data-range="1D">1D</button>
+                <button class="timeframe-btn" data-range="1W">1W</button>
+                <button class="timeframe-btn" data-range="1M">1M</button>
+                <button class="timeframe-btn" data-range="1Y">1Y</button>
+            </div>
+        </div>
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container__widget" id="tv-widget"></div>
+        <!-- TradingView Widget END -->
+    </div>
+
+    <script>
+        // Load TradingView widget script
+        function loadTradingViewWidget(range = '1D') {
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
+            script.async = true;
+            script.innerHTML = JSON.stringify({
+                "symbol": "BITSTAMP:BTCUSD",
+                "width": "100%",
+                "height": "320",
+                "locale": "en",
+                "dateRange": range,
+                "colorTheme": "dark",
+                "trendLineColor": "#fbc531",
+                "underLineColor": "rgba(251, 197, 49, 0.1)",
+                "isTransparent": true,
+                "autosize": false,
+                "largeChartUrl": ""
+            });
+            
+            // Clear previous widget if exists
+            const widgetContainer = document.getElementById('tv-widget');
+            widgetContainer.innerHTML = '';
+            widgetContainer.appendChild(script);
+        }
+        
+        // Initial load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTradingViewWidget();
+            
+            // Timeframe buttons functionality
+            const buttons = document.querySelectorAll('.timeframe-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    buttons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    loadTradingViewWidget(this.dataset.range);
+                });
+            });
+        });
+        
+        // Responsive adjustments
+        window.addEventListener('resize', function() {
+            const container = document.querySelector('.tradingview-widget-container');
+            if (window.innerWidth < 600) {
+                container.style.borderRadius = '0';
+            } else {
+                container.style.borderRadius = '12px';
+            }
+        });
+    </script>
+</body>
+</html>
+              <img src="{%static 'assets/img/c1.jpg'%}" class="img-fluid accent-image shadow" alt="Chef Preparing Food">
+              <span class="establishment-year d-flex align-items-center justify-content-center text-center">Est. 2005</span>
+            </div>
+          </div>
+        </div>
+        <br>
+   <div class="container section-title" data-aos="fade-up">
+        <h2>Why choosen us</h2>
+    <p >our website has strong protection against DDOS attacks.  stable smooth operation of the platform and the security of your transaction.</p>
+      </div> 
+        <div class="row mt-5 pt-4 features-section">
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-credit-card me-2"></i>
+              </div>
+              
+        <h3>Instant Payment</h3>
+        <p>We provide instant payments.  Immediately after a withdrawal request, funds are automatically sent to your e-currency account.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-people"></i>
+              </div> <h3>Support 24/7</h3>
+        <p>Our professional support team will answer all your questions 24/7. <br> An online consultant is also available on our website.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-bar-chart"></i>
+              </div>
+        <h3>Profitable Plans</h3>
+        <p>We guarantee high stable profits.  litget offer our clients proven and reliable investment plans with rates of return daily.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-heart"></i>
+              </div>
+              <h4>Cooked with Love</h4>
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+            <div class="stats-container">
+              <div class="stat-item">
+                <span class="stat-number"><span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="0" class="purecounter">15</span>+</span>
+                <p class="stat-label">Years Experience</p>
+              </div>
+
+              <div class="stat-item">
+                <span class="stat-number"><span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="0" class="purecounter">5</span></span>
+                <p class="stat-label">Expert Traders</p>
+              </div>
+
+              <div class="stat-item">
+                <span class="stat-number"><span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="0" class="purecounter">3</span></span>
+                <p class="stat-label">Culinary Awards</p>
+              </div>
+
+              <div class="stat-item">
+                <span class="stat-number"><span data-purecounter-start="0" data-purecounter-end="15000" data-purecounter-duration="0" class="purecounter">15000</span>+</span>
+                <p class="stat-label">Happy Customers</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Investment Plans</h2>
+        <p>We offer highly profitable investment plans for every taste and budget.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <div class="menu-filters isotope-filters mb-5">
+            <ul>
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-starters">Basic</li>
+              <li data-filter=".filter-main">Standad</li>
+              <li data-filter=".filter-dessert">Gold</li>
+              <li data-filter=".filter-drinks">Advernce</li>
+            </ul>
+          </div>
+
+          <div class="menu-container isotope-container row gy-4">
+
+            <!-- Regular Menu Items -->
+            <div class="col-lg-6 isotope-item filter-starters">
+              <div class="menu-item d-flex align-items-center gap-4">
+                <div class="menu-content">
+                  <h2>PLAN1 <span class="menu-tag">Broze</span></h2>
+                  <p>Min: $50.00 -
+Max: $499.00 <br>
+Ref Commission: 10% $
+Instant Payments</p>
+                  <div class="price">10%
+After 12 Hours</div>
+<div class="price" >               <button style="background-color: blue;"><a href="{% url 'login' %}">Deposit</a></button>
+</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-starters">
+              <div class="d-flex menu-item align-items-center gap-4">
+                <div class="menu-content">
+                   <h2>PLAN2<span class="menu-tag">Silver</span></h2>
+                  <p>Min: $500.00 -
+Max: $999.00 <br>
+Ref Commission: 15% $
+Instant Payments</p>
+                  <div class="price">15%
+After 12 Hours</div>
+<div class="price" >               <button style="background-color: blue;"><a href="{% url 'login' %}">Deposit</a></button>
+</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-main">
+              <div class="d-flex menu-item align-items-center gap-4">
+                <div class="menu-content">
+                   <h2>PLAN3 <span class="menu-tag">Gold</span></h2>
+                  <p>Min: $1000.00 -
+Max: $4999.00 <br>
+Ref Commission: 20% $
+Instant Payments</p>
+                  <div class="price">20%
+After 12 Hours</div>
+<div class="price" >               <button style="background-color: blue;"><a href="{% url 'login' %}">Deposit</a></button>
+</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-main">
+              <div class="d-flex menu-item align-items-center gap-4">
+                <div class="menu-content">
+                   <h2>PLAN4 <span class="menu-tag">platinum</span></h2>
+                  <p>Min: $5000.00 -
+Max: $9999.00 <br>
+Ref Commission: 25% $
+Instant Payments</p>
+                  <div class="price">25%
+After 12 Hours</div>
+<div class="price" >               <button style="background-color: blue;"><a href="{% url 'login' %}">Deposit</a></button>
+</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-dessert">
+              <div class="d-flex menu-item align-items-center gap-4">
+                <div class="menu-content">
+                   <h2>PLAN5 <span class="menu-tag"> Diamond</span></h2>
+                  <p>Min: $10,000.00 -
+Max: $19,999.00 <br>
+Ref Commission: 40% $
+Instant Payments</p>
+                  <div class="price">40%
+After 12 Hours</div>
+<div class="price" >               <button style="background-color: blue;"><a href="">Deposit</a></button>
+</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-dessert">
+              <div class="d-flex menu-item align-items-center gap-4">
+                <div class="menu-content">
+                 <h2>PLAN6 <span class="menu-tag">Ruby</span></h2>
+                  <p>Min: $20,000.00 -
+Max: $99,999.00 <br>
+Ref Commission: 45% $
+Instant Payments</p>
+                  <div class="price">45%
+After 12 Hours</div>
+<div class="price" >               <button style="background-color: blue;"><a href="{% url 'login' %}">Deposit</a></button>
+</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-drinks">
+              <div class="d-flex menu-item align-items-center gap-4">
+                <div class="menu-content">
+                  <h2>PLAN7 <span class="menu-tag">crown gold</span></h2>
+                  <p>Min: $100,000.00 -
+Max: $999,999.00 <br>
+Ref Commission: 50% $
+Instant Payments</p>
+                  <div class="price">50%
+After 12 Hours</div>
+<div class="price" >               <button style="background-color: blue;"><a href="{% url 'login' %}">Deposit</a></button>
+</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-drinks">
+              <div class="d-flex menu-item align-items-center gap-4">
+                <div class="menu-content">
+                   <h2>PLAN8 <span class="menu-tag">legendary</span></h2>
+                  <p>Min: $1,000,000.00 -
+Max: $2,000,000.00 <br>
+Ref Commission: 100% $
+Instant Payments</p>
+                  <div class="price">100%
+After 12 Hours</div>
+<div class="price" >               <button style="background-color: blue;"><a href="">Deposit</a></button>
+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        
+       
+        
+    </section><!-- /Menu Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Testimonials</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 1
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+"What impressed me most was the withdrawal speed. Requested $2,300 in BTC at 9am, had it in my wallet by noon. Other platforms take days! LitGet's instant balance updates and email notifications show they're serious about user experience."                </p>
+                <div class="profile mt-auto">
+                  <img src="{%static 'assets/img/person/person-m-9.webp'%}" class="testimonial-img" alt="">
+                  <h3>Saul Goodman</h3>
+                  <h4>Ceo &amp; Founder</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+*"After trying 5+ investment platforms, LitGet stands out with its transparency. My $25,000 VIP deposit earns 6.5% daily, and I receive email confirmations for every transaction. The admin approval system gives me confidence my funds are secure."*                </p>
+                <div class="profile mt-auto">
+                  <img src="{%static 'assets/img/person/person-f-5.webp'%}" class="testimonial-img" alt="">
+                  <h3>Sara Wilsson</h3>
+                  <h4>Designer</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+"As someone new to crypto, I appreciated LitGet's simple process. Deposited $500 in USDT, uploaded my proof, and saw my balance grow 4% daily. My first withdrawal was approved in just 6 hours! Customer support even helped me understand blockchain fees. Perfect for beginners!"                </p>
+                <div class="profile mt-auto">
+                  <img src="{%static 'assets/img/person/person-f-12.webp'%}" class="testimonial-img" alt="">
+                  <h3>Jena Karlis</h3>
+                  <h4>Store Owner</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+*"Thanks to LitGet's referral program, I earn more from my network than my actual job! I invited 12 friends who became active investors, and now I get $300-500 weekly in referral bonuses. The dashboard makes tracking everything super easy. 10/10 recommend!"*                </p>
+                <div class="profile mt-auto">
+                  <img src="{%static 'assets/img/person/person-m-12.webp'%}" class="testimonial-img" alt="">
+                  <h3>Matt Brandon</h3>
+                  <h4>Freelancer</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+*"I was skeptical at first, but after 3 months with LitGet, I'm earning $1,200/month in passive income! The automated growth system works exactly as promised - my initial $5,000 deposit now generates $150 every week. Withdrawals are processed within 24 hours. This platform changed my financial life!"*                </p>
+                <div class="profile mt-auto">
+                  <img src="{%static 'assets/img/person/person-m-13.webp'%}" class="testimonial-img" alt="">
+                  <h3>John Larson</h3>
+                  <h4>Entrepreneur</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+  
+
+    <!-- Book A Table Section -->
+    <section id="book-a-table" class="book-a-table section">
+
+      
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --dark: #2A3042;
+            --light: #F8F9FA;
+            --success: #16C784;
+            --danger: #EA3943;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .faq-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .faq-header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        .faq-item {
+            background: rgb(27, 27, 27);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--primary);
+            color: rgb(17, 16, 16);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 40px;
+        }
+        
+        .badge {
+            background: rgb(36, 33, 33);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .badge i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .support-cta {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .support-cta h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .support-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: rgb(14, 13, 13);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .support-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 600px) {
+            .faq-header h1 {
+                font-size: 2rem;
+            }
+            
+            .faq-question {
+                padding: 15px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="faq-container">
+        <div class="faq-header">
+            <h1>LitGet FAQs</h1>
+            <p>Find answers to common questions about our platform</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">What is LitGet?</div>
+            <div class="faq-answer">
+                <p>LitGet is a fully licensed digital platform specializing in cryptocurrency trading and blockchain solutions. Our headquarters are located at <strong>71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ</strong>, and we operate in compliance with international regulations.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">What services does LitGet offer?</div>
+            <div class="faq-answer">
+                <p>We provide:</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Secure crypto/fiat transactions</li>
+                    <li>AI-powered portfolio tracking</li>
+                    <li>Multi-chain wallet integration</li>
+                    <li>Institutional-grade trading tools</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Who can use LitGet?</div>
+            <div class="faq-answer">
+                <p>Our platform is available to:</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Individuals aged 18+ (with KYC verification)</li>
+                    <li>Businesses (corporate accounts available)</li>
+                    <li>Institutions (custom API solutions)</li>
+                </ul>
+                <p><em>Note: Excluded jurisdictions apply due to regulatory requirements.</em></p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">How do I register?</div>
+            <div class="faq-answer">
+                <p>Getting started is easy:</p>
+                <ol style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Visit <a href="https://litget.com/signup" target="_blank">LitGet.com/signup</a></li>
+                    <li>Submit your email and create a password</li>
+                    <li>Complete identity verification (KYC)</li>
+                    <li>Fund your account and start trading</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Are there fees for registration?</div>
+            <div class="faq-answer">
+                <p>Account creation is 100% free. Transaction fees apply only when you:</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Deposit/withdraw funds (0.1%-2.5%)</li>
+                    <li>Trade assets (0.05%-0.25% per trade)</li>
+                </ul>
+                <p>View our full <a href="https://litget.com/fees" target="_blank">Fee Schedule</a> for details.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">I'm having registration issues. What should I do?</div>
+            <div class="faq-answer">
+                <p>Try these troubleshooting steps:</p>
+                <ol style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Clear your browser cache and cookies</li>
+                    <li>Use recommended browsers (Chrome or Firefox)</li>
+                    <li>Check your spam folder for verification emails</li>
+                    <li>Disable any ad-blockers or VPNs temporarily</li>
+                </ol>
+                <p>If issues persist, contact our support team at <a href="mailto:support@litget.com">support@litget.com</a> with screenshots of the problem.</p>
+            </div>
+        </div>
+        
+     
+        
+        
+    </div>
+{% verbatim %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close other open items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Open first item by default
+            if (faqItems.length > 0) {
+                faqItems[0].classList.add('active');
+            }
+        });
+    </script>
+    {% endverbatim %}
+</body>
+</html>
+
+    </section><!-- /Book A Table Section -->
+
+    <!-- Location Section 
+    <section id="location" class="location section">
+
+      Section Title 
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Location</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div> End Section Title 
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-4">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+            <div class="map-container">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.684949335945!2d-73.98658242357565!3d40.75853057126168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ1JzMwLjciTiA3M8KwNTknMDcuNyJX!5e0!3m2!1sen!2sus!4v1654321234567!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+            <div class="info-container">
+              <div class="section-header">
+                <h2>Find Us</h2>
+                <p>Visit Us Today</p>
+              </div>
+
+              <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="info-icon">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Our Location</h3>
+                  <p>123 Culinary Avenue, Manhattan, NY 10001</p>
+                </div>
+              </div>
+
+              <div class="info-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="info-icon">
+                  <i class="bi bi-telephone"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Reservations</h3>
+                  <p>+1 (212) 555-7890</p>
+                  <p class="small-text">We recommend making reservations at least 48 hours in advance</p>
+                </div>
+              </div>
+
+              <div class="info-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="info-icon">
+                  <i class="bi bi-clock"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Hours</h3>
+                  <div class="hours-grid">
+                    <div class="day">Monday - Thursday</div>
+                    <div class="time">11:00 AM - 10:00 PM</div>
+
+                    <div class="day">Friday - Saturday</div>
+                    <div class="time">11:00 AM - 11:30 PM</div>
+
+                    <div class="day">Sunday</div>
+                    <div class="time">10:00 AM - 9:00 PM</div>
+
+                    <div class="day">Brunch Hours</div>
+                    <div class="time">Sat &amp; Sun, 10:00 AM - 2:00 PM</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cta-wrapper" data-aos="fade-up" data-aos-delay="600">
+                <a href="#" class="btn-book">Make a Reservation</a>
+                <a href="#" class="btn-contact">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>/Location Section -->
+
+    <!-- Events Section -->
+    <!-- <section id="events" class="events section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="intro-text text-center mb-5" data-aos="fade-up" data-aos-delay="150">
+          <h2>Create Unforgettable Moments</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.</p>
+        </div>
+
+        <div class="event-types">
+          <div class="row">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="event-type-card">
+                <div class="icon-wrapper">
+                  <i class="bi bi-calendar-heart"></i>
+                </div>
+                <h3>Weddings &amp; Celebrations</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+                <span class="capacity">Up to 150 guests</span>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+              <div class="event-type-card">
+                <div class="icon-wrapper">
+                  <i class="bi bi-building"></i>
+                </div>
+                <h3>Corporate Events</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+                <span class="capacity">Up to 100 guests</span>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="event-type-card">
+                <div class="icon-wrapper">
+                  <i class="bi bi-people"></i>
+                </div>
+                <h3>Private Gatherings</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+                <span class="capacity">Up to 50 guests</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-showcase" data-aos="fade-up" data-aos-delay="150">
+          <div class="row g-3">
+            <div class="col-lg-8">
+              <div class="main-image" data-aos="zoom-in" data-aos-delay="200">
+                <img src="{%static 'assets/img/restaurant/event-1.webp'%}" alt="Event Space" class="img-fluid">
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="row g-3">
+                <div class="col-lg-12 col-md-6">
+                  <div class="gallery-item" data-aos="zoom-in" data-aos-delay="250">
+                    <img src="{%static 'assets/img/restaurant/event-5.webp'%}" alt="Event" class="img-fluid">
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-6">
+                  <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="{%static 'assets/img/restaurant/event-7.webp'%}" alt="Event" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-cta" data-aos="fade-up" data-aos-delay="200">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <h3>Ready to plan your special event?</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed justo magna. Contact us today to discuss your requirements.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="#" class="btn-reserve">Reserve Venue</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="featured-events" data-aos="fade-up" data-aos-delay="200">
+          <h3>Upcoming Featured Events</h3>
+
+          <div class="row g-4">
+            <div class="col-lg-6 col-md-6">
+              <div class="featured-event-card" data-aos="fade-up" data-aos-delay="250">
+                <div class="event-date">
+                  <span class="month">Jun</span>
+                  <span class="day">18</span>
+                </div>
+                <div class="event-content">
+                  <div class="event-image">
+                    <img src="{%static 'assets/img/restaurant/event-3.webp'%}" alt="Summer Wine Festival" class="img-fluid">
+                  </div>
+                  <div class="event-info">
+                    <h4>Summer Wine Festival</h4>
+                    <ul class="event-meta">
+                      <li><i class="bi bi-clock"></i> 6:00 PM - 10:00 PM</li>
+                      <li><i class="bi bi-geo-alt"></i> Garden Terrace</li>
+                    </ul>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed justo magna dolor sit amet.</p>
+                    <a href="#" class="btn-details">View Details</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="featured-event-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="event-date">
+                  <span class="month">Jul</span>
+                  <span class="day">05</span>
+                </div>
+                <div class="event-content">
+                  <div class="event-image">
+                    <img src="{%static 'assets/img/restaurant/event-8.webp'%}" alt="Gourmet Tasting Night" class="img-fluid">
+                  </div>
+                  <div class="event-info">
+                    <h4>Gourmet Tasting Night</h4>
+                    <ul class="event-meta">
+                      <li><i class="bi bi-clock"></i> 7:30 PM - 11:00 PM</li>
+                      <li><i class="bi bi-geo-alt"></i> Main Dining Hall</li>
+                    </ul>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed justo magna dolor sit amet.</p>
+                    <a href="#" class="btn-details">View Details</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Events Section -->
+
+    <!-- Contact Section -->
+    <!-- <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <!-- <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100"> --> --> -->
+
+        <!-- Contact Info Boxes 
+        <div class="row gy-4 mb-5">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="contact-info-box">
+              <div class="icon-box">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <div class="info-content">
+                <h4>Our Address</h4>
+                <p>1842 Maple Avenue, Portland, Oregon 97204</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="contact-info-box">
+              <div class="icon-box">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <div class="info-content">
+                <h4>Email Address</h4>
+                <p>info@example.com</p>
+                <p>contact@example.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="contact-info-box">
+              <div class="icon-box">
+                <i class="bi bi-headset"></i>
+              </div>
+              <div class="info-content">
+                <h4>Hours of Operation</h4>
+                <p>Sunday-Fri: 9 AM - 6 PM</p>
+                <p>Saturday: 9 AM - 4 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>-->
+
+      <!-- Google Maps (Full Width) -->
+       <!--
+      <div class="map-section" data-aos="fade-up" data-aos-delay="200">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>-->
+
+      <!-- Contact Form Section (Overlapping) -->
+       <!--
+      <div class="container form-container-overlap">
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-10">
+            <div class="contact-form-wrapper">
+              <h2 class="text-center mb-4">Get in Touch</h2>
+
+              <form action="forms/contact.php" method="post" class="php-email-form">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i class="bi bi-person"></i>
+                        <input type="text" class="form-control" name="name" placeholder="First Name" required="">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i class="bi bi-envelope"></i>
+                        <input type="email" class="form-control" name="email" placeholder="Email Address" required="">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i class="bi bi-text-left"></i>
+                        <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i class="bi bi-chat-dots message-icon"></i>
+                        <textarea class="form-control" name="message" placeholder="Write Message..." style="height: 180px" required=""></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                  </div>
+
+                  <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary btn-submit">SEND MESSAGE</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+
+    </section>-->
+    <!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">LitGet</span>
+          </a>
+          <p>Bytget makes investment simpler, Comprehensive, Profitable and Resourceful for Everyone.</p>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>A108 Adam Street</p>
+          <p>New York, NY 535022</p>
+          <p>United States</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+          <p><strong>Email:</strong> <span>info@example.com</span></p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">LitGet</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{%static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{%static 'assets/vendor/php-email-form/validate.js'%}"></script>
+  <script src="{%static 'assets/vendor/aos/aos.js'%}"></script>
+  <script src="{%static 'assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
+  <script src="{%static 'assets/vendor/purecounter/purecounter_vanilla.js'%}"></script>
+  <script src="{%static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js'%}"></script>
+  <script src="{%static 'assets/vendor/isotope-layout/isotope.pkgd.min.js'%}"></script>
+
+  <!-- Main JS File -->
+  <script src="{%static 'assets/js/main.js'%}"></script>
+
+</body>
+
+</html>
